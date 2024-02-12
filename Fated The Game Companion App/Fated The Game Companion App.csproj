@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Fated_The_Game_Companion_App</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>fatedicon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="fatedicon.png" />
+    <None Remove="greaterthan.png" />
+    <None Remove="home.png" />
+    <None Remove="_89a8c655-caf4-4878-9a1d-828cfdeaf106.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="fatedicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="fatedicon.png" />
+    <Resource Include="greaterthan.png" />
+    <Resource Include="home.png" />
+    <Resource Include="_89a8c655-caf4-4878-9a1d-828cfdeaf106.png" />
+  </ItemGroup>
+
+</Project>
