@@ -23,9 +23,6 @@
 
   <ItemGroup>
     <Resource Include="fatedicon.png" />
-    <Resource Include="greaterthan.png" />
-    <Resource Include="home.png" />
-    <Resource Include="_89a8c655-caf4-4878-9a1d-828cfdeaf106.png" />
   </ItemGroup>
 
 </Project>
