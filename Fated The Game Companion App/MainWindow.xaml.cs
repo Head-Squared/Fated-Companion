@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using System.IO;
+using System.Security.AccessControl;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,6 +17,16 @@ using System.Windows.Xps.Packaging;
 
 namespace Fated_The_Game_Companion_App
 {
+    /// <summary>
+    /// Holds all the variables that describe a character
+    /// </summary>
+    public class CharacterSheet
+    {
+        public string Name;
+        public string Species;
+        public string Profession;
+        public string Level;
+    }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -39,6 +51,11 @@ namespace Fated_The_Game_Companion_App
 
         string selectedTab = "home";
 
+        string charactersPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Fated\\Characters";
+
+
+
+
 
         TreeViewItem lastParentItem = new TreeViewItem(); // Used later in a recursive method
         public MainWindow()
@@ -46,6 +63,8 @@ namespace Fated_The_Game_Companion_App
             InitializeComponent();
             LoadTree(@"documents\Ruleset", true); //Loads the treeviewer using file folders
             LoadDocumentViewer(@"documents\Ruleset Welcome.xps"); //Loads the Welcome Document into the Document Viewer
+
+            Directory.CreateDirectory(charactersPath);
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -63,6 +82,7 @@ namespace Fated_The_Game_Companion_App
 
             indicator.Width = homeBTNWidth;
             indicator.Margin = new Thickness(homeBTNXPos, 0, 0, 0);
+
         }
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -117,6 +137,10 @@ namespace Fated_The_Game_Companion_App
 
         private void tapestriesBTN_Click(object sender, RoutedEventArgs e)
         {
+            playerCharacterList.Children.Clear();
+            
+            LoadPlayerCharacterList();
+
             mainContent.SelectedIndex = 2;
             selectedTab = "tapestries";
             moveIndicator(tapestriesBTNXPos, tapestriesBTNWidth, animationDuration);
@@ -273,6 +297,124 @@ namespace Fated_The_Game_Companion_App
             mechanicsViewer.ShowPageBorders = false; // Removes ugly dropshadow
         }
 
+        private void LoadPlayerCharacterList() // Method used for loading the list of characters found on the tapestries page
+        {
+            string[] characters = Directory.GetFiles(charactersPath); // Gets a list of files from the directory all character save files are stored
+            
+            foreach (string character in characters) // Iterates over list of files
+            {
+                System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(typeof(CharacterSheet));
+
+                FileStream fs = new FileStream(character, FileMode.Open);
+
+                CharacterSheet cs;
+
+                cs = (CharacterSheet) x.Deserialize(fs);
+
+                Border charInfoBorder = new Border();
+                charInfoBorder.BorderThickness = new Thickness(2, 2, 2, 2);
+                charInfoBorder.BorderBrush = Brushes.White;
+                charInfoBorder.CornerRadius = new CornerRadius(6);
+                charInfoBorder.Margin = new Thickness(15,10,1,1);
+
+                Grid charInfoHorPanel = new Grid();
+                ColumnDefinition c1 = new ColumnDefinition();
+                ColumnDefinition c2 = new ColumnDefinition();
+                charInfoHorPanel.ColumnDefinitions.Add(c1);
+                charInfoHorPanel.ColumnDefinitions.Add(c2);
+
+                StackPanel charInfoPanel = new StackPanel();
+                StackPanel charInfoVerBTNPanel = new StackPanel();
+                charInfoVerBTNPanel.VerticalAlignment = VerticalAlignment.Center;
+
+                Grid.SetColumn(charInfoPanel, 0);
+                Grid.SetColumn(charInfoVerBTNPanel, 1);
+                charInfoHorPanel.Children.Add(charInfoPanel);
+                charInfoHorPanel.Children.Add(charInfoVerBTNPanel);
+
+                Label charName = new Label(); // Creates a new label
+                charName.Content = cs.Name; // Sets the content of the label to be the name of the file without extension
+                charName.FontFamily = new FontFamily("Ami R");
+                charName.FontSize = 32;
+                charName.FontWeight = FontWeights.Bold;
+                charName.Foreground = Brushes.White;
+                charName.Padding = new Thickness(6,0,0,0);
+                charName.VerticalAlignment = VerticalAlignment.Center;
+                charInfoPanel.Children.Add(charName);
+
+                Label charLevel = new Label();
+                charLevel.Content = "Level " + cs.Level;
+                charLevel.FontFamily = new FontFamily("Ami R");
+                charLevel.FontSize = 18;
+                charLevel.FontWeight = FontWeights.Bold;
+                charLevel.Foreground = Brushes.White;
+                charLevel.VerticalAlignment = VerticalAlignment.Center;
+                charLevel.Padding = new Thickness(6, 0, 0, 0);
+                charInfoPanel.Children.Add(charLevel);
+
+                Label charSAndP = new Label();
+                charSAndP.Content = cs.Species+" " + cs.Profession;
+                charSAndP.FontFamily = new FontFamily("Ami R");
+                charSAndP.FontSize = 18;
+                charSAndP.FontWeight = FontWeights.Bold;
+                charSAndP.Foreground = Brushes.White;
+                charSAndP.VerticalAlignment = VerticalAlignment.Center;
+                charSAndP.Padding = new Thickness(6, 0, 0, 6);
+                charInfoPanel.Children.Add(charSAndP);
+
+                Button loadBTN = new Button();
+                loadBTN.Name = character.Replace(charactersPath, "").Replace(".fcs", "").Replace("\\","")+"Load";
+                loadBTN.Content = "Load";
+                loadBTN.HorizontalAlignment = HorizontalAlignment.Right;
+                loadBTN.Width = 40;
+                loadBTN.Margin = new Thickness(0, 1, 3, 1);
+                loadBTN.Style = (Style)Resources["charInfoBTNS"];
+                loadBTN.FontFamily = new FontFamily("Ami R");
+                loadBTN.Foreground = Brushes.White;
+                loadBTN.FontSize = 16;
+                charInfoVerBTNPanel.Children.Add(loadBTN);
+
+                Button editBTN = new Button();
+                editBTN.Name = character.Replace(charactersPath, "").Replace(".fcs", "").Replace("\\", "") + "Edit";
+                editBTN.Content = "Edit";
+                editBTN.HorizontalAlignment = HorizontalAlignment.Right;
+                editBTN.Width = 40;
+                editBTN.Margin = new Thickness(0, 1, 3, 1);
+                editBTN.Style = (Style)Resources["charInfoBTNS"];
+                editBTN.FontFamily = new FontFamily("Ami R");
+                editBTN.Foreground = Brushes.White;
+                editBTN.FontSize = 16;
+                charInfoVerBTNPanel.Children.Add(editBTN);
+
+                Button copyBTN = new Button();
+                copyBTN.Name = character.Replace(charactersPath, "").Replace(".fcs", "").Replace("\\", "") + "Copy";
+                copyBTN.Content = "Copy";
+                copyBTN.HorizontalAlignment = HorizontalAlignment.Right;
+                copyBTN.Width = 40;
+                copyBTN.Margin = new Thickness(0, 1, 3, 1);
+                copyBTN.Style = (Style)Resources["charInfoBTNS"];
+                copyBTN.FontFamily = new FontFamily("Ami R");
+                copyBTN.Foreground = Brushes.White;
+                copyBTN.FontSize = 16;
+                charInfoVerBTNPanel.Children.Add(copyBTN);
+
+                Button exportBTN = new Button();
+                exportBTN.Name = character.Replace(charactersPath, "").Replace(".fcs", "").Replace("\\", "") + "Export";
+                exportBTN.Content = "Export";
+                exportBTN.HorizontalAlignment = HorizontalAlignment.Right;
+                exportBTN.Width = 40;
+                exportBTN.Margin = new Thickness(0, 1, 3, 1);
+                exportBTN.Style = (Style)Resources["charInfoBTNS"];
+                exportBTN.FontFamily = new FontFamily("Ami R");
+                exportBTN.Foreground = Brushes.White;
+                exportBTN.FontSize = 16;
+                charInfoVerBTNPanel.Children.Add(exportBTN);
+
+                charInfoBorder.Child = charInfoHorPanel;
+                playerCharacterList.Children.Add(charInfoBorder); // Adds label to the stackpanel of characters
+            }
+        }
+
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
@@ -305,6 +447,73 @@ namespace Fated_The_Game_Companion_App
         private void minimizeBTN_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        private void tempBTN_Click(object sender, RoutedEventArgs e)
+        {
+            CharacterSheet testCharacter = new CharacterSheet();
+            testCharacter.Name = "Genghis";
+            testCharacter.Species = "Karkonos";
+            testCharacter.Profession = "Mage";
+            testCharacter.Level = "3";
+
+            System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(typeof(CharacterSheet));
+
+            x.Serialize(Console.Out, testCharacter);
+            Console.WriteLine();
+            Console.ReadLine();
+
+            StreamWriter writer = new StreamWriter(charactersPath + "\\" + testCharacter.Name + ".fcs");
+            
+            x.Serialize(writer, testCharacter);
+
+            StreamReader reader = new StreamReader(charactersPath + "\\" + testCharacter.Name + ".fcs");
+            x.Deserialize(reader);
+
+            
+        }
+
+        private void newCharBTN_Click(object sender, RoutedEventArgs e)
+        {
+            mainContent.SelectedIndex = 5;
+
+            string filePath = GetNewFilePath();
+
+
+            CharacterSheet curSelectedCharacter = new CharacterSheet();
+
+
+            curSelectedCharacter.Name = "Unnamed Character";
+            curSelectedCharacter.Level = "0";
+            curSelectedCharacter.Species = "Undecided Species";
+            curSelectedCharacter.Profession = "Undecided Profession";
+
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(typeof(CharacterSheet));
+                x.Serialize(writer, curSelectedCharacter);
+            }
+            
+        }
+
+        private string GetNewFilePath()
+        {
+            List<int> fileNumbers = new List<int>();
+            fileNumbers.Add(0);
+
+            string[] characters = Directory.GetFiles(charactersPath);
+            foreach (string character in characters)
+            {
+                fileNumbers.Add(Convert.ToInt32(character.Replace(".fcs", "").Replace("Save","").Replace(charactersPath,"").Replace("\\","")));
+            }
+
+            int max = fileNumbers.Max();
+
+            string newFileName = "Save" + Convert.ToString(max+1) + ".fcs";
+
+            string newFilePath = charactersPath + "\\" + newFileName;
+
+            return newFilePath;
         }
     }
 }
