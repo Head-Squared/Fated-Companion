@@ -1257,7 +1257,9 @@
             </TabItem>
             <TabItem x:Name="charCreator">
                 <TabControl>
-                    <TabItem x:Name="generalInfoTab" Header="General Info"></TabItem>
+                    <TabItem x:Name="generalInfoTab" Header="General Info">
+                        <TextBox x:Name="nameInput" TextChanged="nameInput_TextChanged"></TextBox>
+                    </TabItem>
                     <TabItem x:Name="speciesSelectionTab" Header="Species"></TabItem>
                     <TabItem x:Name="professionSelectionTab" Header="Profession"></TabItem>
                     <TabItem x:Name="attributeRollsTab" Header="Attributes"></TabItem>

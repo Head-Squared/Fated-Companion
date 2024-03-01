@@ -53,6 +53,9 @@ namespace Fated_The_Game_Companion_App
 
         string charactersPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Fated\\Characters";
 
+        CharacterSheet curSelectedCharacter = new CharacterSheet();
+        string curCharacterPath;
+
 
 
 
@@ -303,13 +306,7 @@ namespace Fated_The_Game_Companion_App
             
             foreach (string character in characters) // Iterates over list of files
             {
-                System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(typeof(CharacterSheet));
-
-                FileStream fs = new FileStream(character, FileMode.Open);
-
-                CharacterSheet cs;
-
-                cs = (CharacterSheet) x.Deserialize(fs);
+                CharacterSheet cs = Deserialize(character);
 
                 Border charInfoBorder = new Border();
                 charInfoBorder.BorderThickness = new Thickness(2, 2, 2, 2);
@@ -363,7 +360,7 @@ namespace Fated_The_Game_Companion_App
                 charInfoPanel.Children.Add(charSAndP);
 
                 Button loadBTN = new Button();
-                loadBTN.Name = character.Replace(charactersPath, "").Replace(".fcs", "").Replace("\\","")+"Load";
+                loadBTN.Name = character.Replace(charactersPath, "").Replace(".fcs", "").Replace("\\","");
                 loadBTN.Content = "Load";
                 loadBTN.HorizontalAlignment = HorizontalAlignment.Right;
                 loadBTN.Width = 40;
@@ -375,7 +372,7 @@ namespace Fated_The_Game_Companion_App
                 charInfoVerBTNPanel.Children.Add(loadBTN);
 
                 Button editBTN = new Button();
-                editBTN.Name = character.Replace(charactersPath, "").Replace(".fcs", "").Replace("\\", "") + "Edit";
+                editBTN.Name = character.Replace(charactersPath, "").Replace("\\", "").Replace(".fcs","");
                 editBTN.Content = "Edit";
                 editBTN.HorizontalAlignment = HorizontalAlignment.Right;
                 editBTN.Width = 40;
@@ -384,6 +381,7 @@ namespace Fated_The_Game_Companion_App
                 editBTN.FontFamily = new FontFamily("Ami R");
                 editBTN.Foreground = Brushes.White;
                 editBTN.FontSize = 16;
+                editBTN.Click += EditBTN_Click;
                 charInfoVerBTNPanel.Children.Add(editBTN);
 
                 Button copyBTN = new Button();
@@ -415,6 +413,16 @@ namespace Fated_The_Game_Companion_App
             }
         }
 
+        private void EditBTN_Click(object sender, RoutedEventArgs e)
+        {
+            string saveFile = (sender as Button).Name.ToString();
+            string saveFilePath = charactersPath + "\\" + saveFile + ".fcs";
+
+            curSelectedCharacter = Deserialize(saveFilePath);
+
+            mainContent.SelectedIndex = 5;
+        }
+
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
@@ -438,10 +446,7 @@ namespace Fated_The_Game_Companion_App
                 this.WindowState = WindowState.Normal;
                 windowBTNS.Margin = new Thickness(0, 0, 0, 0);
                 maximizeBTN.Style = (Style)Resources["normBTN"];
-            }
-
-           
-
+            }           
         }
 
         private void minimizeBTN_Click(object sender, RoutedEventArgs e)
@@ -472,28 +477,49 @@ namespace Fated_The_Game_Companion_App
 
             
         }
-
+        //Remove later
         private void newCharBTN_Click(object sender, RoutedEventArgs e)
         {
             mainContent.SelectedIndex = 5;
 
             string filePath = GetNewFilePath();
 
-
-            CharacterSheet curSelectedCharacter = new CharacterSheet();
-
-
             curSelectedCharacter.Name = "Unnamed Character";
             curSelectedCharacter.Level = "0";
             curSelectedCharacter.Species = "Undecided Species";
             curSelectedCharacter.Profession = "Undecided Profession";
 
-            using (StreamWriter writer = new StreamWriter(filePath))
+            Serialize(filePath, curSelectedCharacter);
+            curCharacterPath = filePath;
+
+            
+        }
+
+        private void Serialize(string path, CharacterSheet characterSheet)
+        {
+            using (StreamWriter writer = new StreamWriter(path))
             {
                 System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(typeof(CharacterSheet));
-                x.Serialize(writer, curSelectedCharacter);
+                x.Serialize(writer, characterSheet);
             }
-            
+        }
+
+        private CharacterSheet Deserialize(string path)
+        {
+            CharacterSheet cs;
+
+            using (FileStream fs = new FileStream(path, FileMode.Open))
+            {
+                System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(typeof(CharacterSheet));
+
+
+                cs = (CharacterSheet)x.Deserialize(fs);
+
+                curCharacterPath = path;
+            }
+
+            return cs;
+
         }
 
         private string GetNewFilePath()
@@ -502,6 +528,7 @@ namespace Fated_The_Game_Companion_App
             fileNumbers.Add(0);
 
             string[] characters = Directory.GetFiles(charactersPath);
+
             foreach (string character in characters)
             {
                 fileNumbers.Add(Convert.ToInt32(character.Replace(".fcs", "").Replace("Save","").Replace(charactersPath,"").Replace("\\","")));
@@ -514,6 +541,12 @@ namespace Fated_The_Game_Companion_App
             string newFilePath = charactersPath + "\\" + newFileName;
 
             return newFilePath;
+        }
+
+        private void nameInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.Name = nameInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
         }
     }
 }
