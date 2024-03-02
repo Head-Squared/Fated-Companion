@@ -11,6 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="documents\Ruleset\Compendium\Professions\Knight.xps" />
+    <None Remove="documents\Ruleset\Compendium\Professions\Professions Overview.xps" />
+    <None Remove="documents\Ruleset\Compendium\Species\Species Overview.xps" />
+    <None Remove="documents\Ruleset\Mechanics\Character\Character Traits.xps" />
+    <None Remove="documents\Ruleset\Mechanics\Gameplay\Combat.xps" />
     <None Remove="fatedicon.png" />
     <None Remove="greaterthan.png" />
     <None Remove="home.png" />
@@ -22,7 +27,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="documents\Ruleset\Compendium\Professions\Knight.xps">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="documents\Ruleset\Compendium\Professions\Professions Overview.xps">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="documents\Ruleset\Compendium\Species\Species Overview.xps">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="documents\Ruleset\Mechanics\Character\Character Traits.xps">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="documents\Ruleset\Mechanics\Gameplay\Combat.xps">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="fatedicon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="documents\Ruleset Welcome.xps">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
