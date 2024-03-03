@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Fated The Game Companion App/1.0.0": {
+        "runtime": {
+          "Fated The Game Companion App.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Fated The Game Companion App/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
