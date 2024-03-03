@@ -477,23 +477,6 @@ namespace Fated_The_Game_Companion_App
 
             
         }
-        //Remove later
-        private void newCharBTN_Click(object sender, RoutedEventArgs e)
-        {
-            mainContent.SelectedIndex = 5;
-
-            string filePath = GetNewFilePath();
-
-            curSelectedCharacter.Name = "Unnamed Character";
-            curSelectedCharacter.Level = "0";
-            curSelectedCharacter.Species = "Undecided Species";
-            curSelectedCharacter.Profession = "Undecided Profession";
-
-            Serialize(filePath, curSelectedCharacter);
-            curCharacterPath = filePath;
-
-            
-        }
 
         private void Serialize(string path, CharacterSheet characterSheet)
         {
