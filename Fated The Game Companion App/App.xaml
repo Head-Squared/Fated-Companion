@@ -4,6 +4,5 @@
              xmlns:local="clr-namespace:Fated_The_Game_Companion_App"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
     </Application.Resources>
 </Application>

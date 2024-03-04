@@ -8,16 +8,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>fatedicon.ico</ApplicationIcon>
-  </PropertyGroup>
-
+  </PropertyGroup>  
+  
   <ItemGroup>
-    <None Remove="Ami R Regular.ttf" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Ami R Regular.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="fatedicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -42,6 +35,12 @@
     <Content Include="fatedicon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="fonts\Ami R Regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\parchm.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

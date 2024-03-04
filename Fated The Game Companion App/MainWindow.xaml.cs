@@ -241,7 +241,7 @@ namespace Fated_The_Game_Companion_App
                 parentItem.Style = (Style)Resources["mechtreeitem"];
                 parentItem.Header = folderName; // Sets the new treeview item's header to the name of the file
                 parentItem.Foreground = Brushes.White;
-                parentItem.FontFamily = new FontFamily("Ami R");
+                parentItem.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
                 parentItem.FontSize = 20;
                 if (firstRun) // This runs only on the first iteration of method
                 {
@@ -332,7 +332,7 @@ namespace Fated_The_Game_Companion_App
 
                 Label charName = new Label(); // Creates a new label
                 charName.Content = cs.Name; // Sets the content of the label to be the name of the file without extension
-                charName.FontFamily = new FontFamily("Ami R");
+                charName.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
                 charName.FontSize = 32;
                 charName.FontWeight = FontWeights.Bold;
                 charName.Foreground = Brushes.White;
@@ -342,7 +342,7 @@ namespace Fated_The_Game_Companion_App
 
                 Label charLevel = new Label();
                 charLevel.Content = "Level " + cs.Level;
-                charLevel.FontFamily = new FontFamily("Ami R");
+                charLevel.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
                 charLevel.FontSize = 18;
                 charLevel.FontWeight = FontWeights.Bold;
                 charLevel.Foreground = Brushes.White;
@@ -352,7 +352,7 @@ namespace Fated_The_Game_Companion_App
 
                 Label charSAndP = new Label();
                 charSAndP.Content = cs.Species+" " + cs.Profession;
-                charSAndP.FontFamily = new FontFamily("Ami R");
+                charSAndP.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
                 charSAndP.FontSize = 18;
                 charSAndP.FontWeight = FontWeights.Bold;
                 charSAndP.Foreground = Brushes.White;
@@ -367,7 +367,7 @@ namespace Fated_The_Game_Companion_App
                 loadBTN.Width = 40;
                 loadBTN.Margin = new Thickness(0, 1, 3, 1);
                 loadBTN.Style = (Style)Resources["charInfoBTNS"];
-                loadBTN.FontFamily = new FontFamily("Ami R");
+                loadBTN.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
                 loadBTN.Foreground = Brushes.White;
                 loadBTN.FontSize = 16;
                 charInfoVerBTNPanel.Children.Add(loadBTN);
@@ -379,7 +379,7 @@ namespace Fated_The_Game_Companion_App
                 editBTN.Width = 40;
                 editBTN.Margin = new Thickness(0, 1, 3, 1);
                 editBTN.Style = (Style)Resources["charInfoBTNS"];
-                editBTN.FontFamily = new FontFamily("Ami R");
+                editBTN.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
                 editBTN.Foreground = Brushes.White;
                 editBTN.FontSize = 16;
                 editBTN.Click += EditBTN_Click;
@@ -392,7 +392,7 @@ namespace Fated_The_Game_Companion_App
                 copyBTN.Width = 40;
                 copyBTN.Margin = new Thickness(0, 1, 3, 1);
                 copyBTN.Style = (Style)Resources["charInfoBTNS"];
-                copyBTN.FontFamily = new FontFamily("Ami R");
+                copyBTN.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
                 copyBTN.Foreground = Brushes.White;
                 copyBTN.FontSize = 16;
                 charInfoVerBTNPanel.Children.Add(copyBTN);
@@ -404,7 +404,7 @@ namespace Fated_The_Game_Companion_App
                 exportBTN.Width = 40;
                 exportBTN.Margin = new Thickness(0, 1, 3, 1);
                 exportBTN.Style = (Style)Resources["charInfoBTNS"];
-                exportBTN.FontFamily = new FontFamily("Ami R");
+                exportBTN.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
                 exportBTN.Foreground = Brushes.White;
                 exportBTN.FontSize = 16;
                 charInfoVerBTNPanel.Children.Add(exportBTN);

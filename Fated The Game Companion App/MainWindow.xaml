@@ -1169,27 +1169,27 @@
         </StackPanel>
         <StackPanel x:Name="mainNavBTNS" Grid.Row="0" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Style="{DynamicResource navigationButtonStyle}" x:Name="rulesetBTN" Click="rulesetBTN_Click">
-                <Label x:Name="rulesetBTNContent" Padding="0,8,0,0" FontSize="26" FontFamily="Ami R" FontWeight="Bold" Foreground="White">Ruleset</Label>
+                <Label x:Name="rulesetBTNContent" Padding="0,8,0,0" FontSize="26" FontFamily="./fonts/#Ami R" FontWeight="Bold" Foreground="White">Ruleset</Label>
             </Button>
             <Button Style="{DynamicResource navigationButtonStyle}" x:Name="tapestriesBTN" Click="tapestriesBTN_Click">
-                <Label x:Name="tapestriesBTNContent" Padding="0,8,0,0" FontSize="26" FontFamily="Ami R" FontWeight="Bold" Foreground="White">
+                <Label x:Name="tapestriesBTNContent" Padding="0,8,0,0" FontSize="26" FontFamily="./fonts/#Ami R" FontWeight="Bold" Foreground="White">
                     Tapestries
                 </Label>
             </Button>
             <Button Style="{DynamicResource navigationButtonStyle}" x:Name="toolsBTN" Click="toolsBTN_Click">
-                <Label x:Name="toolsBTNContent" Padding="0,8,0,0" FontSize="26" FontFamily="Ami R" FontWeight="Bold" Foreground="White">
+                <Label x:Name="toolsBTNContent" Padding="0,8,0,0" FontSize="26" FontFamily="./fonts/#Ami R" FontWeight="Bold" Foreground="White">
                     Tools
                 </Label>
             </Button>
             <Button Style="{DynamicResource navigationButtonStyle}" x:Name="settingsBTN" Click="settingsBTN_Click">
-                <Label x:Name="settingsBTNContent" Padding="0,8,0,0" FontSize="26" FontFamily="Ami R" FontWeight="Bold" Foreground="White">
+                <Label x:Name="settingsBTNContent" Padding="0,8,0,0" FontSize="26" FontFamily="./fonts/#Ami R" FontWeight="Bold" Foreground="White">
                     Settings
                 </Label>
             </Button>
         </StackPanel>
         <StackPanel x:Name="historyNavBTNS" Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal">
             <Button Style="{DynamicResource navigationButtonStyle}" x:Name="homeBTN" Click="homeBTN_Click">
-                <Label x:Name="homeBTNContent" Padding="0,8,0,0" FontSize="26" FontFamily="Ami R" FontWeight="Bold" Foreground="White">Home</Label>
+                <Label x:Name="homeBTNContent" Padding="0,8,0,0" FontSize="26" FontFamily="./fonts/#Ami R" FontWeight="Bold" Foreground="White">Home</Label>
             </Button>
         </StackPanel>
         <Canvas x:Name="pageIndicatorCanvas" Grid.Row="1" Height="2">
@@ -1207,7 +1207,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Image Source="/fatedicon.png" Grid.Column="0" Grid.RowSpan="2" SnapsToDevicePixels="True"></Image>
-                    <TextBlock Grid.RowSpan="1" Margin="0,0,10,0" Foreground="White" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" TextWrapping="WrapWithOverflow" TextAlignment="Center" FontFamily="Ami R">Welcome to the Fated Companion App!<LineBreak/>Where your fate is more than just a roll of the dice!</TextBlock>
+                    <TextBlock Grid.RowSpan="1" Margin="0,0,10,0" Foreground="White" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" TextWrapping="WrapWithOverflow" TextAlignment="Center" FontFamily="./fonts/#Ami R">Welcome to the Fated Companion App!<LineBreak/>Where your fate is more than just a roll of the dice!</TextBlock>
 
                 </Grid>
             </TabItem>
@@ -1244,16 +1244,16 @@
                         <ScrollViewer Style="{DynamicResource modernscrollviewer}"></ScrollViewer>
                     </Border>
                     <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Button x:Name="newCharBTN" Click="newCharBTN_Click" Foreground="White" FontFamily="Ami R" FontSize="20" Margin="5" VerticalAlignment="Center" Height="50" Width="50" Style="{DynamicResource charInfoBTNS}">NEW</Button>
-                        <Button Foreground="White" Margin="5" Width="50" FontFamily="ami r" FontSize="20" Style="{DynamicResource charInfoBTNS}">IMPORT</Button>
+                        <Button x:Name="newCharBTN" Click="newCharBTN_Click" Foreground="White" FontFamily="./fonts/#Ami R" FontSize="20" Margin="5" VerticalAlignment="Center" Height="50" Width="50" Style="{DynamicResource charInfoBTNS}">NEW</Button>
+                        <Button Foreground="White" Margin="5" Width="50" FontFamily="./fonts/#Ami R" FontSize="20" Style="{DynamicResource charInfoBTNS}">IMPORT</Button>
                     </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem x:Name="toolsTab">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center">Tools</Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="./fonts/#Ami R" Foreground="White" FontSize="24">Functionality will be added to this tab at a later date!</Label>
             </TabItem>
             <TabItem x:Name="settingsTab">
-                <Label HorizontalAlignment="Center" VerticalAlignment="Center">Settings</Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="./fonts/#Ami R" Foreground="White" FontSize="24">Functionality will be added to this tab at a later date!</Label>
             </TabItem>
             <TabItem x:Name="charCreator">
                 <TabControl>
