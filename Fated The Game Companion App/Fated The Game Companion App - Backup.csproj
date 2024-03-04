@@ -15,9 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="documents\Ruleset Welcome.xps">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="documents\Ruleset\Compendium\Professions\Knight.xps">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -34,6 +31,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="fatedicon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="documents\Ruleset Welcome.xps">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
