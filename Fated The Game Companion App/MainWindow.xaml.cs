@@ -454,28 +454,21 @@ namespace Fated_The_Game_Companion_App
             this.WindowState = WindowState.Minimized;
         }
 
-        private void tempBTN_Click(object sender, RoutedEventArgs e)
+        private void newCharBTN_Click(object sender, RoutedEventArgs e)
         {
-            CharacterSheet testCharacter = new CharacterSheet();
-            testCharacter.Name = "Genghis";
-            testCharacter.Species = "Karkonos";
-            testCharacter.Profession = "Mage";
-            testCharacter.Level = "3";
+            mainContent.SelectedIndex = 5;
 
-            System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(typeof(CharacterSheet));
+            string filePath = GetNewFilePath();
 
-            x.Serialize(Console.Out, testCharacter);
-            Console.WriteLine();
-            Console.ReadLine();
+            curSelectedCharacter.Name = "Unnamed Character";
+            curSelectedCharacter.Level = "0";
+            curSelectedCharacter.Species = "Undecided Species";
+            curSelectedCharacter.Profession = "Undecided Profession";
 
-            StreamWriter writer = new StreamWriter(charactersPath + "\\" + testCharacter.Name + ".fcs");
-            
-            x.Serialize(writer, testCharacter);
+            Serialize(filePath, curSelectedCharacter);
+            curCharacterPath = filePath;
 
-            StreamReader reader = new StreamReader(charactersPath + "\\" + testCharacter.Name + ".fcs");
-            x.Deserialize(reader);
 
-            
         }
 
         private void Serialize(string path, CharacterSheet characterSheet)
