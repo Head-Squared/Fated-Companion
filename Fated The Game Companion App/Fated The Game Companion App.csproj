@@ -11,6 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Ami R Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Ami R Regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="fatedicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
