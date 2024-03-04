@@ -304,20 +304,25 @@ namespace Fated_The_Game_Companion_App
         private void LoadPlayerCharacterList() // Method used for loading the list of characters found on the tapestries page
         {
             string[] characters = Directory.GetFiles(charactersPath); // Gets a list of files from the directory all character save files are stored
+
+            playerCharacterListBorder.Child = playerCharacterScrollView;
             
             foreach (string character in characters) // Iterates over list of files
             {
                 CharacterSheet cs = Deserialize(character);
 
                 Border charInfoBorder = new Border();
+                charInfoBorder.Name = character.Replace(charactersPath, "").Replace(".fcs", "").Replace("\\", "");
                 charInfoBorder.BorderThickness = new Thickness(2, 2, 2, 2);
                 charInfoBorder.BorderBrush = Brushes.White;
                 charInfoBorder.CornerRadius = new CornerRadius(6);
                 charInfoBorder.Margin = new Thickness(15,10,1,1);
+                charInfoBorder.SnapsToDevicePixels = true;
 
                 Grid charInfoHorPanel = new Grid();
                 ColumnDefinition c1 = new ColumnDefinition();
                 ColumnDefinition c2 = new ColumnDefinition();
+                c2.Width = GridLength.Auto;
                 charInfoHorPanel.ColumnDefinitions.Add(c1);
                 charInfoHorPanel.ColumnDefinitions.Add(c2);
 
@@ -385,7 +390,7 @@ namespace Fated_The_Game_Companion_App
                 editBTN.Click += EditBTN_Click;
                 charInfoVerBTNPanel.Children.Add(editBTN);
 
-                Button copyBTN = new Button();
+                /*Button copyBTN = new Button();
                 copyBTN.Name = character.Replace(charactersPath, "").Replace(".fcs", "").Replace("\\", "") + "Copy";
                 copyBTN.Content = "Copy";
                 copyBTN.HorizontalAlignment = HorizontalAlignment.Right;
@@ -395,7 +400,7 @@ namespace Fated_The_Game_Companion_App
                 copyBTN.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
                 copyBTN.Foreground = Brushes.White;
                 copyBTN.FontSize = 16;
-                charInfoVerBTNPanel.Children.Add(copyBTN);
+                charInfoVerBTNPanel.Children.Add(copyBTN);*/
 
                 Button exportBTN = new Button();
                 exportBTN.Name = character.Replace(charactersPath, "").Replace(".fcs", "").Replace("\\", "") + "Export";
@@ -409,8 +414,47 @@ namespace Fated_The_Game_Companion_App
                 exportBTN.FontSize = 16;
                 charInfoVerBTNPanel.Children.Add(exportBTN);
 
+                Button deleteBTN = new Button();
+                deleteBTN.Name = character.Replace(charactersPath, "").Replace(".fcs", "").Replace("\\", "") + "Export";
+                deleteBTN.Content = "Delete";
+                deleteBTN.HorizontalAlignment = HorizontalAlignment.Right;
+                deleteBTN.Width = 40;
+                deleteBTN.Margin = new Thickness(0, 1, 3, 1);
+                deleteBTN.Style = (Style)Resources["charInfoBTNSDelete"];
+                deleteBTN.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
+                deleteBTN.Foreground = Brushes.White;
+                deleteBTN.Background = Brushes.IndianRed;
+                deleteBTN.FontSize = 16;
+                deleteBTN.Click += DeleteBTN_Click;
+                charInfoVerBTNPanel.Children.Add(deleteBTN);
+
                 charInfoBorder.Child = charInfoHorPanel;
                 playerCharacterList.Children.Add(charInfoBorder); // Adds label to the stackpanel of characters
+            }
+            if (characters.Length == 0)
+            {
+                TextBlock noCharTextBox = new TextBlock();
+                noCharTextBox.Text = "You don't have any characters. Press the \"New\" button below to create a character!";
+                noCharTextBox.FontSize = 20;
+                noCharTextBox.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
+                noCharTextBox.Foreground = Brushes.White;
+                noCharTextBox.TextWrapping = TextWrapping.Wrap;
+                noCharTextBox.TextAlignment = TextAlignment.Center;
+                noCharTextBox.VerticalAlignment = VerticalAlignment.Center;
+
+                playerCharacterListBorder.Child = noCharTextBox;
+            }
+        }
+
+        private void DeleteBTN_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure you want to delete this character?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == System.Windows.MessageBoxResult.Yes)
+            {
+                File.Delete(curCharacterPath);
+
+                playerCharacterList.Children.Clear();
+                LoadPlayerCharacterList();
             }
         }
 
@@ -524,6 +568,31 @@ namespace Fated_The_Game_Companion_App
         {
             curSelectedCharacter.Name = nameInput.Text;
             Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void charGenInfoBTN_Click(object sender, RoutedEventArgs e)
+        {
+            charCreatorTabs.SelectedIndex = 0;
+        }
+
+        private void charSpeciesBTN_Click(object sender, RoutedEventArgs e)
+        {
+            charCreatorTabs.SelectedIndex = 1;
+        }
+
+        private void charProfessionBTN_Click(object sender, RoutedEventArgs e)
+        {
+            charCreatorTabs.SelectedIndex= 2 ;
+        }
+
+        private void charAttributesBTN_Click(object sender, RoutedEventArgs e)
+        {
+            charCreatorTabs.SelectedIndex = 3;
+        }
+
+        private void charInventoryBTN_Click(object sender, RoutedEventArgs e)
+        {
+            charCreatorTabs.SelectedIndex = 4;
         }
     }
 }
