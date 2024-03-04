@@ -11,29 +11,30 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="fatedicon.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="documents\Ruleset Welcome.xps">
+    <Content Include="fatedicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="documents\Ruleset\Compendium\Professions\Knight.xps">
+    </Content>
+    <Content Include="documents\Ruleset Welcome.xps">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="documents\Ruleset\Compendium\Professions\Professions Overview.xps">
+    </Content>
+    <Content Include="documents\Ruleset\Compendium\Professions\Knight.xps">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="documents\Ruleset\Compendium\Species\Species Overview.xps">
+    </Content>
+    <Content Include="documents\Ruleset\Compendium\Professions\Professions Overview.xps">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="documents\Ruleset\Mechanics\Character\Character Traits.xps">
+    </Content>
+    <Content Include="documents\Ruleset\Compendium\Species\Species Overview.xps">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="documents\Ruleset\Mechanics\Gameplay\Combat.xps">
+    </Content>
+    <Content Include="documents\Ruleset\Mechanics\Character\Character Traits.xps">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="fatedicon.png" />
+    </Content>
+    <Content Include="documents\Ruleset\Mechanics\Gameplay\Combat.xps">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fatedicon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

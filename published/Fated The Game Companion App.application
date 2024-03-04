@@ -14,14 +14,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Application Files\Fated The Game Companion App_0_1_1_1\Fated The Game Companion App.dll.manifest" size="194790">
+    <dependentAssembly dependencyType="install" codebase="Application Files\Fated The Game Companion App_0_1_1_1\Fated The Game Companion App.dll.manifest" size="197772">
       <assemblyIdentity name="Fated The Game Companion App.exe" version="0.1.1.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>m7Nl9iTx/obMbwNf/l8udQ5OrTDShpSCOvmL55sED4w=</dsig:DigestValue>
+        <dsig:DigestValue>rgldPJb1kOdMQJ6JFdbEL45i4wox5BVTSZN+zLRyNoo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

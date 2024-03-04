@@ -432,6 +432,60 @@
       <dsig:DigestValue>tU91245eimp2cXD+0WcDTz3Lq2MvvmeLEH2X/NZ0bZc=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="documents\Ruleset Welcome.xps" size="51201">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>nHwIH550CY3JASo6aaVcqDSslvA5jomMxGI7H2XnOJg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="documents\Ruleset\Compendium\Professions\Knight.xps" size="1136743">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>YZnAu1uEhl2ESNdFigC6L79wCoEkQj8YPdjul1YUJo4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="documents\Ruleset\Compendium\Professions\Professions Overview.xps" size="1076726">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>+gWZaMQS/3u4miiPf5IZGl8YGgWnv51ygrz88QEBDoY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="documents\Ruleset\Compendium\Species\Species Overview.xps" size="4227762">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>mvvxM0HwpuIGqZ/ftS4zzopWX6lrxqfbcxazGeD9oDA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="documents\Ruleset\Mechanics\Character\Character Traits.xps" size="582291">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>W6L8wYP7XRFygbULg8f6+nqVkzsROJt9ezaiQ9A+yl4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="documents\Ruleset\Mechanics\Gameplay\Combat.xps" size="557042">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>GzlXXDEJIZEiFg5I+Nrih3rHL8YmhAY69NURl7dxADU=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="es\Microsoft.VisualBasic.Forms.resources.dll" size="25760">
     <hash>
       <dsig:Transforms>
@@ -594,13 +648,13 @@
       <dsig:DigestValue>xHeqksxsJ7/kc+FPxdOda5d31PGW7DAWP4L9rAKWItY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Fated The Game Companion App.dll" size="8401920">
+  <file name="Fated The Game Companion App.dll" size="8402432">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>CjJ0rohYAHwPOmeeCKxUurxIcKGtttR4wRGypkUHYno=</dsig:DigestValue>
+      <dsig:DigestValue>LoImO0424C+fOz9hR1N5inBswYen6TzP2kzTYgAT4hc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Fated The Game Companion App.exe" size="313344">
@@ -609,7 +663,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>w4r9WYpRa2btbRIL2ylOpm40ARMlx2Qay9MthtUIeaI=</dsig:DigestValue>
+      <dsig:DigestValue>pxv1yx8MiVPwuspAn2Dby4j8RkSh1yW5Sw7mtnKdSO8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Fated The Game Companion App.runtimeconfig.json" size="466">
@@ -628,6 +682,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>sFemkGMdgopE+epSqyD1TQhP4YNWyF8HL1aLgKK+RgY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="fatedicon.png" size="510617">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Lif6mtsWcZvKmNGDa0JPT5l5jKUtwNgvbYhyzYA590o=</dsig:DigestValue>
     </hash>
   </file>
   <file name="fr\Microsoft.VisualBasic.Forms.resources.dll" size="25760">
