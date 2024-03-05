@@ -1,19 +1,11 @@
 ﻿using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
-using System.Security.AccessControl;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Xps.Packaging;
 
 namespace Fated_The_Game_Companion_App
@@ -107,19 +99,19 @@ namespace Fated_The_Game_Companion_App
             if (selectedTab == "home")
             {
                 moveIndicator(homeBTNXPos, homeBTNWidth, 0);
-            } 
+            }
             else if (selectedTab == "ruleset")
             {
                 moveIndicator(rulesetBTNXPos, rulesetBTNWidth, 0);
-            } 
+            }
             else if (selectedTab == "tapestries")
             {
                 moveIndicator(tapestriesBTNXPos, tapestriesBTNWidth, 0);
-            } 
+            }
             else if (selectedTab == "tools")
             {
                 moveIndicator(toolsBTNXPos, toolsBTNWidth, 0);
-            } 
+            }
             else if (selectedTab == "settings")
             {
                 moveIndicator(settingsBTNXPos, settingsBTNWidth, 0);
@@ -136,13 +128,13 @@ namespace Fated_The_Game_Companion_App
         {
             mainContent.SelectedIndex = 1;
             selectedTab = "ruleset";
-            moveIndicator(rulesetBTNXPos,rulesetBTNWidth, animationDuration);
+            moveIndicator(rulesetBTNXPos, rulesetBTNWidth, animationDuration);
         }
 
         private void tapestriesBTN_Click(object sender, RoutedEventArgs e)
         {
             playerCharacterList.Children.Clear();
-            
+
             LoadPlayerCharacterList();
 
             mainContent.SelectedIndex = 2;
@@ -171,7 +163,7 @@ namespace Fated_The_Game_Companion_App
             moveIndicator(homeBTNXPos, homeBTNWidth, animationDuration);
         }
 
-        private void moveIndicator(double position,double width, double duration)
+        private void moveIndicator(double position, double width, double duration)
         {
             var sb = new Storyboard();
             var ta = new ThicknessAnimation();
@@ -306,7 +298,7 @@ namespace Fated_The_Game_Companion_App
             string[] characters = Directory.GetFiles(charactersPath); // Gets a list of files from the directory all character save files are stored
 
             playerCharacterListBorder.Child = playerCharacterScrollView;
-            
+
             foreach (string character in characters) // Iterates over list of files
             {
                 CharacterSheet cs = Deserialize(character);
@@ -316,7 +308,7 @@ namespace Fated_The_Game_Companion_App
                 charInfoBorder.BorderThickness = new Thickness(2, 2, 2, 2);
                 charInfoBorder.BorderBrush = Brushes.White;
                 charInfoBorder.CornerRadius = new CornerRadius(6);
-                charInfoBorder.Margin = new Thickness(15,10,1,1);
+                charInfoBorder.Margin = new Thickness(15, 10, 1, 1);
                 charInfoBorder.SnapsToDevicePixels = true;
 
                 Grid charInfoHorPanel = new Grid();
@@ -341,7 +333,7 @@ namespace Fated_The_Game_Companion_App
                 charName.FontSize = 32;
                 charName.FontWeight = FontWeights.Bold;
                 charName.Foreground = Brushes.White;
-                charName.Padding = new Thickness(6,0,0,0);
+                charName.Padding = new Thickness(6, 0, 0, 0);
                 charName.VerticalAlignment = VerticalAlignment.Center;
                 charInfoPanel.Children.Add(charName);
 
@@ -356,7 +348,7 @@ namespace Fated_The_Game_Companion_App
                 charInfoPanel.Children.Add(charLevel);
 
                 Label charSAndP = new Label();
-                charSAndP.Content = cs.Species+" " + cs.Profession;
+                charSAndP.Content = cs.Species + " " + cs.Profession;
                 charSAndP.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
                 charSAndP.FontSize = 18;
                 charSAndP.FontWeight = FontWeights.Bold;
@@ -366,7 +358,7 @@ namespace Fated_The_Game_Companion_App
                 charInfoPanel.Children.Add(charSAndP);
 
                 Button loadBTN = new Button();
-                loadBTN.Name = character.Replace(charactersPath, "").Replace(".fcs", "").Replace("\\","");
+                loadBTN.Name = character.Replace(charactersPath, "").Replace(".fcs", "").Replace("\\", "");
                 loadBTN.Content = "Load";
                 loadBTN.HorizontalAlignment = HorizontalAlignment.Right;
                 loadBTN.Width = 40;
@@ -378,7 +370,7 @@ namespace Fated_The_Game_Companion_App
                 charInfoVerBTNPanel.Children.Add(loadBTN);
 
                 Button editBTN = new Button();
-                editBTN.Name = character.Replace(charactersPath, "").Replace("\\", "").Replace(".fcs","");
+                editBTN.Name = character.Replace(charactersPath, "").Replace("\\", "").Replace(".fcs", "");
                 editBTN.Content = "Edit";
                 editBTN.HorizontalAlignment = HorizontalAlignment.Right;
                 editBTN.Width = 40;
@@ -465,7 +457,11 @@ namespace Fated_The_Game_Companion_App
 
             curSelectedCharacter = Deserialize(saveFilePath);
 
+            nameInput.Text = curSelectedCharacter.Name;
+
             mainContent.SelectedIndex = 5;
+            charCreatorTabs.SelectedIndex = 0;
+            charGenInfoBTN.IsChecked = true;
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -485,13 +481,13 @@ namespace Fated_The_Game_Companion_App
                 this.WindowState = WindowState.Maximized;
                 windowBTNS.Margin = new Thickness(0, 6, 6, 0);
                 maximizeBTN.Style = (Style)Resources["maxBTN"];
-            } 
+            }
             else if (this.WindowState == WindowState.Maximized)
             {
                 this.WindowState = WindowState.Normal;
                 windowBTNS.Margin = new Thickness(0, 0, 0, 0);
                 maximizeBTN.Style = (Style)Resources["normBTN"];
-            }           
+            }
         }
 
         private void minimizeBTN_Click(object sender, RoutedEventArgs e)
@@ -513,7 +509,9 @@ namespace Fated_The_Game_Companion_App
             Serialize(filePath, curSelectedCharacter);
             curCharacterPath = filePath;
 
-
+            nameInput.Text = "";
+            charCreatorTabs.SelectedIndex = 0;
+            charGenInfoBTN.IsChecked = true;
         }
 
         private void Serialize(string path, CharacterSheet characterSheet)
@@ -552,12 +550,12 @@ namespace Fated_The_Game_Companion_App
 
             foreach (string character in characters)
             {
-                fileNumbers.Add(Convert.ToInt32(character.Replace(".fcs", "").Replace("Save","").Replace(charactersPath,"").Replace("\\","")));
+                fileNumbers.Add(Convert.ToInt32(character.Replace(".fcs", "").Replace("Save", "").Replace(charactersPath, "").Replace("\\", "")));
             }
 
             int max = fileNumbers.Max();
 
-            string newFileName = "Save" + Convert.ToString(max+1) + ".fcs";
+            string newFileName = "Save" + Convert.ToString(max + 1) + ".fcs";
 
             string newFilePath = charactersPath + "\\" + newFileName;
 
@@ -582,7 +580,7 @@ namespace Fated_The_Game_Companion_App
 
         private void charProfessionBTN_Click(object sender, RoutedEventArgs e)
         {
-            charCreatorTabs.SelectedIndex= 2 ;
+            charCreatorTabs.SelectedIndex = 2;
         }
 
         private void charAttributesBTN_Click(object sender, RoutedEventArgs e)

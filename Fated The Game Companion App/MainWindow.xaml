@@ -1333,7 +1333,7 @@
             <Border x:Name="indicator" Background="Gray" Height="2" Width="50" CornerRadius="1" BorderBrush="Gray" Opacity=".75" Margin="0,0,0,0"/>
         </Canvas>
         <TabControl Style="{DynamicResource noTabPanel}" x:Name="mainContent" Grid.Row="2" BorderThickness="2" Background="#FF2E2E2E" Margin="10,5,10,10">
-            <TabItem x:Name="mainMenu">
+            <TabItem IsSelected="True" x:Name="mainMenu">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -1423,13 +1423,13 @@
                             </Grid>
                     </TabItem>
                     <TabItem x:Name="speciesSelectionTab" Header="Species">
-                            <Label VerticalAlignment="Center" HorizontalAlignment="Center">Species Page - More Functionality will be added later.</Label></TabItem>
+                            <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" Foreground="White" FontSize="20">Species Page - More Functionality will be added later.</Label></TabItem>
                     <TabItem x:Name="professionSelectionTab" Header="Profession">
-                            <Label VerticalAlignment="Center" HorizontalAlignment="Center">Profession - More Functionality will be added later.</Label></TabItem>
+                            <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" Foreground="White" FontSize="20">Profession - More Functionality will be added later.</Label></TabItem>
                     <TabItem x:Name="attributeRollsTab" Header="Attributes">
-                            <Label VerticalAlignment="Center" HorizontalAlignment="Center">Attributes - More Functionality will be added later.</Label></TabItem>
+                            <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" Foreground="White" FontSize="20">Attributes - More Functionality will be added later.</Label></TabItem>
                     <TabItem x:Name="inventoryTab" Header="Inventory">
-                            <Label VerticalAlignment="Center" HorizontalAlignment="Center">Inventory - More Functionality will be added later.</Label></TabItem>
+                            <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" Foreground="White" FontSize="20">Inventory - More Functionality will be added later.</Label></TabItem>
                 </TabControl>
             </Grid>
             </TabItem>
