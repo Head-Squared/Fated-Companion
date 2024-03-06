@@ -1357,7 +1357,7 @@
                     </Grid.ColumnDefinitions>
                     <TreeView Style="{DynamicResource mechtreeview}" x:Name="rulesetTree" Grid.Column="0" SizeChanged="rulesetTree_SizeChanged" SelectedItemChanged="rulesetTree_SelectedItemChanged"/>
                     <GridSplitter Width="10" HorizontalAlignment="Stretch" Grid.Column="1" Background="Transparent"/>
-                    <DocumentViewer Style="{DynamicResource mechview}" Grid.Column="2" x:Name="mechanicsViewer" VerticalPageSpacing="0" HorizontalPageSpacing="0" BorderBrush="Gray" BorderThickness="1" Margin="0,5,5,5">
+                    <DocumentViewer Focusable="False" Style="{DynamicResource mechview}" Grid.Column="2" x:Name="mechanicsViewer" VerticalPageSpacing="0" HorizontalPageSpacing="0" BorderBrush="Gray" BorderThickness="1" Margin="0,5,5,5">
                     </DocumentViewer>
                 </Grid>
             </TabItem>
@@ -1415,11 +1415,93 @@
                     <TabControl Grid.Row="1" x:Name="charCreatorTabs" Style="{DynamicResource noTabPanel}" Background="#FF373737">
                     <TabItem x:Name="generalInfoTab" Header="General Info" IsSelected="True">
                             <Grid>
-                                <StackPanel VerticalAlignment="Center">
-                                    <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">Character Name</Label>
-                                    <TextBox Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="White" TextAlignment="Center" x:Name="nameInput" TextChanged="nameInput_TextChanged" FontSize="20" FontFamily="./fonts/#Ami R" Height="25" Width="200">
-                                    </TextBox>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2">
+                                    <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="42" Foreground="White">Character Name</Label>
+                                    <TextBox MaxHeight="50" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="200" x:Name="nameInput" TextChanged="nameInput_TextChanged"/>
                                 </StackPanel>
+                                <Label Grid.Column="0" Grid.Row="1" FontFamily="./fonts/#Ami R" FontSize="42" Foreground="White" HorizontalAlignment="Center">Physical Description</Label>
+                                <Border Margin="5" Grid.Column="0" Grid.Row="2" BorderBrush="gray" BorderThickness="1" CornerRadius="6">
+                                    <ScrollViewer Style="{DynamicResource modernscrollviewer}" Margin="0,5,0,5">
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Age</Label>
+                                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Weight</Label>
+                                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Height</Label>
+                                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Skin Color</Label>
+                                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Hair Color</Label>
+                                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Eye Color</Label>
+                                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Identifying Marks</Label>
+                                                <TextBox Margin="1" SnapsToDevicePixels="True" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Border>
+                                <Label Grid.Column="1" Grid.Row="1" FontFamily="./fonts/#Ami R" FontSize="42" Foreground="White" HorizontalAlignment="Center">Personality</Label>
+                                <Border Margin="5" Grid.Column="1" Grid.Row="2" BorderBrush="gray" BorderThickness="1" CornerRadius="6">
+                                    <ScrollViewer Style="{DynamicResource modernscrollviewer}" Margin="0,5,0,5">
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Alignment</Label>
+                                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Beliefs</Label>
+                                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Ideals</Label>
+                                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Flaws</Label>
+                                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Groups</Label>
+                                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Friends</Label>
+                                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Enemies</Label>
+                                                <TextBox AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                            <StackPanel Margin="15,10">
+                                                <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Backstory</Label>
+                                                <TextBox Margin="1" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="20" FontFamily="./fonts/#Ami R" Width="300"></TextBox>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Border>
                             </Grid>
                     </TabItem>
                     <TabItem x:Name="speciesSelectionTab" Header="Species">
