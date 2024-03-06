@@ -172,7 +172,7 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <ScrollViewer Style="{DynamicResource modernscrollviewer}" x:Name="PART_ContentHost" Grid.Column="0" CanContentScroll="true" Focusable="{TemplateBinding Focusable}" HorizontalScrollBarVisibility="Auto" IsTabStop="true" Grid.Row="1" TabIndex="1" Margin="0,5,5,5" Background="Transparent"/>
+                                <ScrollViewer PanningMode="VerticalOnly" Style="{DynamicResource modernscrollviewer}" x:Name="PART_ContentHost" Grid.Column="0" CanContentScroll="true" Focusable="{TemplateBinding Focusable}" HorizontalScrollBarVisibility="Auto" IsTabStop="true" Grid.Row="1" TabIndex="1" Margin="0,5,5,5" Background="Transparent"/>
                             </Grid>
                         </Border>
                     </ControlTemplate>
