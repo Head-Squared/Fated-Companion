@@ -57,7 +57,7 @@ namespace Fated_The_Game_Companion_App
         public MainWindow()
         {
             InitializeComponent();
-            LoadTree(@"documents\Ruleset", true); //Loads the treeviewer using file folders
+            LoadTree(@"documents\Ruleset", rulesetTree); //Loads the treeviewer using file folders
             LoadDocumentViewer(@"documents\Ruleset Welcome.xps"); //Loads the Welcome Document into the Document Viewer
 
             Directory.CreateDirectory(charactersPath);
@@ -219,7 +219,64 @@ namespace Fated_The_Game_Companion_App
 
             }
         }
-        private void LoadTree(string DirPath, bool firstRun) // Loads items into our tree viewer using the document directory
+
+        private void LoadTree(string DirPath, object parent) // Loads items into our tree viewer using the document directory
+        {
+            DirPath = System.IO.Path.GetFullPath(DirPath).Replace(@"bin\Debug\net8.0-windows\", ""); // Changes partial path into useable full path
+            string[] folders = Directory.GetDirectories(DirPath); // Creates an array of all the folders in parent folder
+            string[] files = Directory.GetFiles(DirPath); // Creates an array of all the files in parent folder
+
+            foreach (string file in files) // Iterates over files in subfolder
+                {
+                    string fileName = System.IO.Path.GetFileName(file).Replace(".xps", ""); // Changes partial path into useable full path
+
+                    TreeViewItem childItem = new TreeViewItem(); // Creates new treeview item
+                    childItem.Header = fileName; // Sets the new treeview item's header to the name of the file
+                    childItem.Foreground = Brushes.LightGray;
+                    childItem.Style = (Style)Resources["mechtreeitem"];
+
+                if (parent.GetType() == typeof(TreeView))
+                {
+                    TreeView parentItem = (TreeView)parent;
+                    parentItem.Items.Add(childItem); // Adds treeview items as a child of folder treeview item
+                    parentItem.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending)); // Sorts items alphabetically
+                } 
+                else if (parent.GetType() == typeof(TreeViewItem))
+                {
+                    TreeViewItem parentItem = (TreeViewItem)parent;
+                    parentItem.Items.Add(childItem); // Adds treeview items as a child of folder treeview item
+                    parentItem.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending)); // Sorts items alphabetically
+                }
+                }
+            foreach (string folder in folders) // Iterates over array of folders
+            {
+                string folderName = System.IO.Path.GetFileName(folder); // Variable that stores the name of the file, excluding path
+
+                TreeViewItem childDir = new TreeViewItem(); // Creates a new treeview item
+                childDir.Style = (Style)Resources["mechtreeitem"];
+                childDir.Header = folderName; // Sets the new treeview item's header to the name of the file
+                childDir.Foreground = Brushes.White;
+                childDir.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
+                childDir.FontSize = 20;
+
+                if (parent.GetType() == typeof(TreeView))
+                {
+                    TreeView parentItem = (TreeView)parent;
+                    parentItem.Items.Add(childDir); // Adds treeview items as a child of folder treeview item
+                    parentItem.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending)); // Sorts items alphabetically
+                }
+                else if (parent.GetType() == typeof(TreeViewItem))
+                {
+                    TreeViewItem parentItem = (TreeViewItem)parent;
+                    parentItem.Items.Add(childDir); // Adds treeview items as a child of folder treeview item
+                    parentItem.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending)); // Sorts items alphabetically
+                }
+
+                LoadTree(folder, childDir); // iterates the method to run on more subfolders
+            }
+        }
+
+            /*private void oldLoadTree(string DirPath, bool firstRun) // Loads items into our tree viewer using the document directory
         {
             DirPath = System.IO.Path.GetFullPath(DirPath).Replace(@"bin\Debug\net8.0-windows\", ""); // Changes partial path into useable full path
             string[] folders = Directory.GetDirectories(DirPath); // Creates an array of all the folders in parent folder
@@ -279,7 +336,7 @@ namespace Fated_The_Game_Companion_App
             }
 
 
-        }
+        }*/
         private void LoadDocumentViewer(string partialDir) // Method that loads the docviewer with the correct xps file
         {
             string fullDir = System.IO.Path.GetFullPath(partialDir).Replace(@"bin\Debug\net8.0-windows\", ""); // Changes the partial directory we passed in Mechanics() to a usable full path
