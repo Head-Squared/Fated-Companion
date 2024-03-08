@@ -1320,7 +1320,7 @@
                                 <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                                 <Border x:Name="changeLog" Height="0" Width="0">
                                     <ScrollViewer x:Name="changeLogScroll" Opacity="0" Style="{DynamicResource modernscrollviewer}">
-                                        <TextBlock TextWrapping="Wrap"><Bold>Changelog</Bold><LineBreak/>◦ Added a changelog to the main menu.<LineBreak/>◦Fixed an issue with the ruleset TreeView not displaying items correctly.</TextBlock>
+                                        <TextBlock TextWrapping="Wrap"><Bold>Changelog</Bold><LineBreak/>◦ Added a changelog to the main menu.<LineBreak/><LineBreak/>◦ Fixed an issue with the ruleset TreeView not displaying items correctly.</TextBlock>
                                     </ScrollViewer>
                                 </Border>
                             </StackPanel>
