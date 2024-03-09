@@ -15,10 +15,28 @@ namespace Fated_The_Game_Companion_App
     /// </summary>
     public class CharacterSheet
     {
+        // General Info
         public string Name;
         public string Species;
         public string Profession;
         public string Level;
+        public string Age;
+        public string Weight;
+        public string Height;
+        public string SkinColor;
+        public string HairColor;
+        public string EyeColor;
+        public string IdentifyingMarks;
+        public string Alignment;
+        public string Beliefs;
+        public string Ideals;
+        public string Flaws;
+        public string Groups;
+        public string Friends;
+        public string Enemies;
+        public string Backstory;
+
+        // Species
     }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -276,67 +294,6 @@ namespace Fated_The_Game_Companion_App
             }
         }
 
-            /*private void oldLoadTree(string DirPath, bool firstRun) // Loads items into our tree viewer using the document directory
-        {
-            DirPath = System.IO.Path.GetFullPath(DirPath).Replace(@"bin\Debug\net8.0-windows\", ""); // Changes partial path into useable full path
-            string[] folders = Directory.GetDirectories(DirPath); // Creates an array of all the folders in parent folder
-            string[] files = Directory.GetFiles(DirPath); // Creates an array of all the files in parent folder
-
-            foreach (string folder in folders) // Iterates over array of folders
-            {
-                string folderName = System.IO.Path.GetFileName(folder); // Variable that stores the name of the file, excluding path
-
-                TreeViewItem parentItem = new TreeViewItem(); // Creates a new treeview item
-                parentItem.Style = (Style)Resources["mechtreeitem"];
-                parentItem.Header = folderName; // Sets the new treeview item's header to the name of the file
-                parentItem.Foreground = Brushes.White;
-                parentItem.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./fonts/#Ami R");
-                parentItem.FontSize = 20;
-                if (firstRun) // This runs only on the first iteration of method
-                {
-                    rulesetTree.Items.Add(parentItem); // Adds treeview item to the main treeview
-                    rulesetTree.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending)); // Sorts items alphabetically
-                }
-                else // runs every other iteration of method
-                {
-                    lastParentItem.Items.Add(parentItem); // Adds treeview item to the previous treeview item, which is created at the end of the first iteration of method
-                    lastParentItem.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending)); // Sorts items alphabetically
-                }
-
-                string[] subFiles = Directory.GetFiles(folder); // Array of files in subfolder
-
-                foreach (string subFile in subFiles) // Iterates over files in subfolder
-                {
-                    string fileName = System.IO.Path.GetFileName(subFile).Replace(".xps", ""); // Changes partial path into useable full path
-
-                    TreeViewItem childItem2 = new TreeViewItem(); // Creates new treeview item
-                    childItem2.Header = fileName; // Sets the new treeview item's header to the name of the file
-                    childItem2.Foreground = Brushes.LightGray;
-                    childItem2.Style = (Style)Resources["mechtreeitem"];
-                    parentItem.Items.Add(childItem2); // Adds treeview items as a child of folder treeview item
-                    parentItem.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending)); // Sorts items alphabetically
-                }
-                if (firstRun) { lastParentItem = parentItem; } // Sets lastparent to this iterations parent item, used in the next iteration
-                LoadTree(folder, false); // iterates the method to run on more subfolders
-
-            }
-            if (firstRun) // Only runs for the first iteration of method. (Only runs after all iterations finish)
-            {
-                foreach (string file in files) // Iterates over all documents in main folder
-                {
-                    string fileName = System.IO.Path.GetFileName(file).Replace(".xps", ""); // Changes partial path into useable full path
-
-                    TreeViewItem childItem1 = new TreeViewItem(); // Creates new treeview item
-                    childItem1.Header = fileName; // Sets new treeview items header to document name
-                    childItem1.Foreground = Brushes.LightGray;
-                    childItem1.Style = (Style)Resources["mechtreeitem"];
-                    rulesetTree.Items.Add(childItem1); // Adds treeview item to main treeview list
-                    rulesetTree.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending)); // Sorts list alphabetically
-                }
-            }
-
-
-        }*/
         private void LoadDocumentViewer(string partialDir) // Method that loads the docviewer with the correct xps file
         {
             string fullDir = System.IO.Path.GetFullPath(partialDir).Replace(@"bin\Debug\net8.0-windows\", ""); // Changes the partial directory we passed in Mechanics() to a usable full path
@@ -514,7 +471,23 @@ namespace Fated_The_Game_Companion_App
 
             curSelectedCharacter = Deserialize(saveFilePath);
 
+            // General Info
             nameInput.Text = curSelectedCharacter.Name;
+            ageInput.Text = curSelectedCharacter.Age;
+            weightInput.Text = curSelectedCharacter.Weight;
+            heightInput.Text = curSelectedCharacter.Height;
+            skinColorInput.Text = curSelectedCharacter.SkinColor;
+            hairColorInput.Text = curSelectedCharacter.HairColor;
+            eyeColorInput.Text = curSelectedCharacter.EyeColor;
+            identifyingMarksInput.Text = curSelectedCharacter.IdentifyingMarks;
+            alignmentInput.Text = curSelectedCharacter.Alignment;
+            beliefsInput.Text = curSelectedCharacter.Beliefs;
+            idealsInput.Text = curSelectedCharacter.Ideals; 
+            flawsInput.Text = curSelectedCharacter.Flaws;
+            groupsInput.Text = curSelectedCharacter.Groups;
+            friendsInput.Text = curSelectedCharacter.Friends;
+            enemiesInput.Text = curSelectedCharacter.Enemies;
+            backstoryInput.Text = curSelectedCharacter.Backstory;
 
             mainContent.SelectedIndex = 5;
             charCreatorTabs.SelectedIndex = 0;
@@ -567,6 +540,22 @@ namespace Fated_The_Game_Companion_App
             curCharacterPath = filePath;
 
             nameInput.Text = "";
+            ageInput.Text = "";
+            weightInput.Text = "";
+            heightInput.Text = "";
+            skinColorInput.Text = "";
+            hairColorInput.Text = "";
+            eyeColorInput.Text = "";
+            identifyingMarksInput.Text = "";
+            alignmentInput.Text = "";
+            beliefsInput.Text = "";
+            idealsInput.Text = "";
+            flawsInput.Text = "";
+            groupsInput.Text = "";
+            friendsInput.Text = "";
+            enemiesInput.Text = "";
+            backstoryInput.Text = "";
+
             charCreatorTabs.SelectedIndex = 0;
             charGenInfoBTN.IsChecked = true;
         }
@@ -619,12 +608,6 @@ namespace Fated_The_Game_Companion_App
             return newFilePath;
         }
 
-        private void nameInput_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            curSelectedCharacter.Name = nameInput.Text;
-            Serialize(curCharacterPath, curSelectedCharacter);
-        }
-
         private void charGenInfoBTN_Click(object sender, RoutedEventArgs e)
         {
             charCreatorTabs.SelectedIndex = 0;
@@ -648,6 +631,102 @@ namespace Fated_The_Game_Companion_App
         private void charInventoryBTN_Click(object sender, RoutedEventArgs e)
         {
             charCreatorTabs.SelectedIndex = 4;
+        }
+
+        private void nameInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.Name = nameInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void ageInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.Age = ageInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void weightInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.Weight = weightInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void heightInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.Height = heightInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void skinColorInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.SkinColor = skinColorInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void hairColorInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.HairColor = hairColorInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void eyeColorInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.EyeColor = eyeColorInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void identifyingMarksInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.IdentifyingMarks = identifyingMarksInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void alignmentInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.Alignment = alignmentInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void beliefsInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.Beliefs = beliefsInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void idealsInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.Ideals = idealsInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void flawsInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.Flaws = flawsInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void groupsInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.Groups = groupsInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void friendsInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.Friends = friendsInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void enemiesInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.Enemies = enemiesInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
+        }
+
+        private void backstoryInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            curSelectedCharacter.Backstory = backstoryInput.Text;
+            Serialize(curCharacterPath, curSelectedCharacter);
         }
     }
 }
