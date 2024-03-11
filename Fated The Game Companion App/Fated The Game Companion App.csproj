@@ -35,6 +35,9 @@
     <Content Include="fatedicon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Reference Include="SpeciesClass">
+      <HintPath>..\..\..\OneDrive\Documents\Coding\Visual Studio Projects\SpeciesClass\SpeciesClass\bin\Debug\net8.0\SpeciesClass.dll</HintPath>
+    </Reference>
     <Resource Include="fonts\Ami R Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

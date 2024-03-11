@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Xps.Packaging;
+using SpeciesClass;
 
 namespace Fated_The_Game_Companion_App
 {
@@ -16,25 +17,41 @@ namespace Fated_The_Game_Companion_App
     public class CharacterSheet
     {
         // General Info
-        public string Name;
-        public string Species;
-        public string Profession;
-        public string Level;
-        public string Age;
-        public string Weight;
-        public string Height;
-        public string SkinColor;
-        public string HairColor;
-        public string EyeColor;
-        public string IdentifyingMarks;
-        public string Alignment;
-        public string Beliefs;
-        public string Ideals;
-        public string Flaws;
-        public string Groups;
-        public string Friends;
-        public string Enemies;
-        public string Backstory;
+        public string? Name;
+        public string? Species;
+        public string? Profession;
+        public string? Level;
+        public string? Age;
+        public string? Weight;
+        public string? Height;
+        public string? SkinColor;
+        public string? HairColor;
+        public string? EyeColor;
+        public string? IdentifyingMarks;
+        public string? Alignment;
+        public string? Beliefs;
+        public string? Ideals;
+        public string? Flaws;
+        public string? Groups;
+        public string? Friends;
+        public string? Enemies;
+        public string? Backstory;
+        public string? SpeciesName;
+        public string? SpeciesShortDescription;
+        public string? SpeciesLongDescription;
+        public string? SpeciesLore;
+        public string? SpeciesPhysicalAppearance;
+        public int SpeciesHardinessBonus;
+        public int SpeciesMindfulnessBonus;
+        public int SpeciesNimblenessBonus;
+        public string? SpeciesSpecialAbilityName;
+        public string? SpeciesSpecialAbilityDescription;
+        public bool SpeciesSecondChoice;
+        public bool SpeciesThirdChoice;
+        public string? SpeciesSecondChoiceType;
+        public string? SpeciesThirdChoiceType;
+        public List<string>? SpeciesSecondList;
+        public List<string>? SpeciesThirdList;
 
         // Species
     }
@@ -65,11 +82,7 @@ namespace Fated_The_Game_Companion_App
         string charactersPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Fated\\Characters";
 
         CharacterSheet curSelectedCharacter = new CharacterSheet();
-        string curCharacterPath;
-
-
-
-
+        string curCharacterPath = "N/A";
 
         TreeViewItem lastParentItem = new TreeViewItem(); // Used later in a recursive method
         public MainWindow()
@@ -212,13 +225,19 @@ namespace Fated_The_Game_Companion_App
         {
             TreeViewItem? item = rulesetTree.SelectedItem as TreeViewItem;
             bool run = true;
+            #pragma warning disable CS8602 // Dereference of a possibly null reference.
             string path = item.Header.ToString() + ".xps";
+            #pragma warning restore CS8602 // Dereference of a possibly null reference.
             while (run)
             {
-                TreeViewItem parent = item.Parent as TreeViewItem;
+                #pragma warning disable CS8602 // Dereference of a possibly null reference.
+                TreeViewItem? parent = item.Parent as TreeViewItem;
+                #pragma warning restore CS8602 // Dereference of a possibly null reference.
                 try
                 {
+                    #pragma warning disable CS8602 // Dereference of a possibly null reference.
                     path = parent.Header.ToString() + "\\" + path;
+                    #pragma warning restore CS8602 // Dereference of a possibly null reference.
                 }
                 catch
                 {
@@ -466,7 +485,7 @@ namespace Fated_The_Game_Companion_App
 
         private void EditBTN_Click(object sender, RoutedEventArgs e)
         {
-            string saveFile = (sender as Button).Name.ToString();
+            string saveFile = ((Button)sender).Name.ToString();
             string saveFilePath = charactersPath + "\\" + saveFile + ".fcs";
 
             curSelectedCharacter = Deserialize(saveFilePath);
@@ -571,19 +590,21 @@ namespace Fated_The_Game_Companion_App
 
         private CharacterSheet Deserialize(string path)
         {
-            CharacterSheet cs;
+            CharacterSheet? cs;
 
             using (FileStream fs = new FileStream(path, FileMode.Open))
             {
                 System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(typeof(CharacterSheet));
 
 
-                cs = (CharacterSheet)x.Deserialize(fs);
+                cs = x.Deserialize(fs) as CharacterSheet;
 
                 curCharacterPath = path;
             }
 
+            #pragma warning disable CS8603 // Possible null reference return.
             return cs;
+            #pragma warning restore CS8603 // Possible null reference return.
 
         }
 
