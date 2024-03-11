@@ -1336,7 +1336,7 @@
                                 <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                                 <Border x:Name="changeLog" Height="0" Width="0">
                                     <ScrollViewer x:Name="changeLogScroll" Opacity="0" Style="{DynamicResource modernscrollviewer}">
-                                        <TextBlock TextWrapping="Wrap"><Bold>Changelog</Bold><LineBreak/>◦ </TextBlock>
+                                        <TextBlock TextWrapping="Wrap"><Bold>Changelog</Bold><LineBreak/>◦</TextBlock>
                                     </ScrollViewer>
                                 </Border>
                             </StackPanel>
@@ -1432,33 +1432,47 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type RadioButton}">
-                        <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <ContentPresenter x:Name="contentPresenter" Grid.Column="0" Grid.Row="0" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <TextBlock x:Name="speciesDescShort"  Grid.Row="1">Test</TextBlock>
-                        </Grid>
+                        <Border Width="350" x:Name="templateRoot" BorderBrush="Gray" BorderThickness="3" SnapsToDevicePixels="True" CornerRadius="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border.Background>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="#FF5D5D5D"/>
+                                    <GradientStop x:Name="gradientEnd" Color="#FF373737" Offset="1"/>
+                                </RadialGradientBrush>
+                            </Border.Background>
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="HasContent" Value="true">
                                 <Setter Property="FocusVisualStyle" Value="{StaticResource OptionMarkFocusVisual1}"/>
                                 <Setter Property="Padding" Value="4,-1,0,0"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="gradientEnd" Storyboard.TargetProperty="Color" To="#FF5D5D5D" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="gradientEnd" Storyboard.TargetProperty="Color" To="#FF373737" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>                                
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
-                                
+
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                
+
                             </Trigger>
                             <Trigger Property="IsChecked" Value="true">
-                                
+                                <Setter Property="BorderBrush" Value="IndianRed" TargetName="templateRoot"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="{x:Null}">
-                                
+
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -1698,9 +1712,49 @@
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
-                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
-                                <RadioButton x:Name="species1BTN" Style="{DynamicResource speciesSelectionBTNs}">Test BTN</RadioButton>
+                                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <RadioButton Margin="5" x:Name="species1BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                        <Grid Height="150">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Valumian</Label>
+                                            <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Hardiness</Label>
+                                            <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
+                                            <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Nimbleness</Label>
+                                            <TextBlock Margin="10,-10,10,10" VerticalAlignment="Bottom" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Battle Cry</Bold> - Once per day you may inspire your allies with a speech or other gesture. While inspired, your allies may make any roll with advantage.</TextBlock>
+                                        </Grid>
+                                    </RadioButton>
+                                    <RadioButton Margin="5" x:Name="species2BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                        <Grid Height="150">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Tidal</Label>
+                                            <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Hardiness</Label>
+                                            <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
+                                            <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+4 Nimbleness</Label>
+                                            <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Aquatic Ancestry</Bold> - You can breathe underwater, and your swim speed is equal to your movement.</TextBlock>
+                                        </Grid>
+                                    </RadioButton>
+
+                                </WrapPanel>
                             </Grid>
                         </TabItem>
                         <TabItem x:Name="professionSelectionTab" Header="Profession">

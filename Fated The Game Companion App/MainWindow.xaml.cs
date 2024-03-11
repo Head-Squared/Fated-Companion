@@ -577,6 +577,8 @@ namespace Fated_The_Game_Companion_App
 
             charCreatorTabs.SelectedIndex = 0;
             charGenInfoBTN.IsChecked = true;
+
+            
         }
 
         private void Serialize(string path, CharacterSheet characterSheet)
@@ -749,5 +751,6 @@ namespace Fated_The_Game_Companion_App
             curSelectedCharacter.Backstory = backstoryInput.Text;
             Serialize(curCharacterPath, curSelectedCharacter);
         }
+
     }
 }
