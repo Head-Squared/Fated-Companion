@@ -1715,45 +1715,68 @@
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
                                 <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <RadioButton Margin="5" x:Name="species1BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
-                                        <Grid Height="150">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition/>
-                                                <ColumnDefinition/>
-                                                <ColumnDefinition/>
-                                            </Grid.ColumnDefinitions>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition/>
-                                                <RowDefinition/>
-                                                <RowDefinition/>
-                                            </Grid.RowDefinitions>
-                                            <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Valumian</Label>
-                                            <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Hardiness</Label>
-                                            <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
-                                            <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Nimbleness</Label>
-                                            <TextBlock Margin="10,-10,10,10" VerticalAlignment="Bottom" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Battle Cry</Bold> - Once per day you may inspire your allies with a speech or other gesture. While inspired, your allies may make any roll with advantage.</TextBlock>
-                                        </Grid>
-                                    </RadioButton>
-                                    <RadioButton Margin="5" x:Name="species2BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
-                                        <Grid Height="150">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition/>
-                                                <ColumnDefinition/>
-                                                <ColumnDefinition/>
-                                            </Grid.ColumnDefinitions>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition/>
-                                                <RowDefinition/>
-                                                <RowDefinition/>
-                                            </Grid.RowDefinitions>
-                                            <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Tidal</Label>
-                                            <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Hardiness</Label>
-                                            <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
-                                            <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+4 Nimbleness</Label>
-                                            <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Aquatic Ancestry</Bold> - You can breathe underwater, and your swim speed is equal to your movement.</TextBlock>
-                                        </Grid>
-                                    </RadioButton>
+                                    <StackPanel>
+                                        <RadioButton GroupName="species" Margin="5" x:Name="species1BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                            <Grid Height="150">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Valumian</Label>
+                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Hardiness</Label>
+                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
+                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Nimbleness</Label>
+                                                <TextBlock Margin="10,-10,10,10" VerticalAlignment="Bottom" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Battle Cry</Bold> - Once per day you may inspire your allies with a speech or other gesture. While inspired, your allies may make any roll with advantage.</TextBlock>
+                                            </Grid>
+                                        </RadioButton>
+                                        <RadioButton GroupName="species" Margin="5" x:Name="species2BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                            <Grid Height="150">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Tidal</Label>
+                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Hardiness</Label>
+                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
+                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+4 Nimbleness</Label>
+                                                <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Aquatic Ancestry</Bold> - You can breathe underwater, and your swim speed is equal to your movement.</TextBlock>
+                                            </Grid>
+                                        </RadioButton>
+                                    </StackPanel>
+                                    <StackPanel>
 
+                                        <RadioButton GroupName="species" Margin="5" x:Name="species6BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                            <Grid Height="150">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+                                                <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Tidal</Label>
+                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Hardiness</Label>
+                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
+                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+4 Nimbleness</Label>
+                                                <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Aquatic Ancestry</Bold> - You can breathe underwater, and your swim speed is equal to your movement.</TextBlock>
+                                            </Grid>
+                                        </RadioButton>
+                                    </StackPanel>
                                 </WrapPanel>
                             </Grid>
                         </TabItem>
