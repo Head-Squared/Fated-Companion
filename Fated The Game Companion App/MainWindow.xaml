@@ -1432,7 +1432,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type RadioButton}">
-                        <Border Width="350" x:Name="templateRoot" BorderBrush="Gray" BorderThickness="3" SnapsToDevicePixels="True" CornerRadius="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border Width="350" Height="150" x:Name="templateRoot" BorderBrush="Gray" BorderThickness="3" SnapsToDevicePixels="True" CornerRadius="6" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Border.Background>
                                 <RadialGradientBrush>
                                     <GradientStop Color="#FF5D5D5D"/>
@@ -1630,7 +1630,7 @@
                                 </Grid.ColumnDefinitions>
                                 <StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2">
                                     <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="42" Foreground="White">Character Name</Label>
-                                    <TextBox MaxHeight="50" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" x:Name="nameInput" TextChanged="nameInput_TextChanged"/>
+                                    <TextBox MaxHeight="50" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="White" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" x:Name="nameInput" TextChanged="nameInput_TextChanged"/>
                                 </StackPanel>
                                 <Label Grid.Column="0" Grid.Row="1" FontFamily="./fonts/#Ami R" FontSize="42" Foreground="White" HorizontalAlignment="Center">Physical Description</Label>
                                 <Border Margin="5" Grid.Column="0" Grid.Row="2" BorderBrush="gray" BorderThickness="1" CornerRadius="6" HorizontalAlignment="Center">
@@ -1638,27 +1638,27 @@
                                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Age</Label>
-                                                <TextBox x:Name="ageInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="ageInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="ageInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="White" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="ageInput_TextChanged"></TextBox>
                                             </StackPanel>
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Weight</Label>
-                                                <TextBox x:Name="weightInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="weightInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="weightInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="white" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="weightInput_TextChanged"></TextBox>
                                             </StackPanel>
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Height</Label>
-                                                <TextBox x:Name="heightInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="heightInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="heightInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="white" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="heightInput_TextChanged"></TextBox>
                                             </StackPanel>
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Skin Color</Label>
-                                                <TextBox x:Name="skinColorInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="skinColorInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="skinColorInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="white" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="skinColorInput_TextChanged"></TextBox>
                                             </StackPanel>
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Hair Color</Label>
-                                                <TextBox x:Name="hairColorInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="hairColorInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="hairColorInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="white" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="hairColorInput_TextChanged"></TextBox>
                                             </StackPanel>
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Eye Color</Label>
-                                                <TextBox x:Name="eyeColorInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="eyeColorInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="eyeColorInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="white" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="eyeColorInput_TextChanged"></TextBox>
                                             </StackPanel>
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Identifying Marks</Label>
@@ -1673,35 +1673,35 @@
                                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Alignment</Label>
-                                                <TextBox x:Name="alignmentInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="alignmentInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="alignmentInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="white" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="alignmentInput_TextChanged"></TextBox>
                                             </StackPanel>
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Beliefs</Label>
-                                                <TextBox x:Name="beliefsInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="beliefsInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="beliefsInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="white" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="beliefsInput_TextChanged"></TextBox>
                                             </StackPanel>
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Ideals</Label>
-                                                <TextBox x:Name="idealsInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="idealsInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="idealsInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="white" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="idealsInput_TextChanged"></TextBox>
                                             </StackPanel>
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Flaws</Label>
-                                                <TextBox x:Name="flawsInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="flawsInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="flawsInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="white" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="flawsInput_TextChanged"></TextBox>
                                             </StackPanel>
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Groups</Label>
-                                                <TextBox x:Name="groupsInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="groupsInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="groupsInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="white" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="groupsInput_TextChanged"></TextBox>
                                             </StackPanel>
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Friends</Label>
-                                                <TextBox x:Name="friendsInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="friendsInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="friendsInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="white" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="friendsInput_TextChanged"></TextBox>
                                             </StackPanel>
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Enemies</Label>
-                                                <TextBox x:Name="enemiesInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="enemiesInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="enemiesInput" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="white" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="enemiesInput_TextChanged"></TextBox>
                                             </StackPanel>
                                             <StackPanel Margin="15,10">
                                                 <Label HorizontalAlignment="Center" FontFamily="./fonts/#Ami R" FontSize="32" Foreground="White">Backstory</Label>
-                                                <TextBox x:Name="backstoryInput" Margin="10" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="LightGray" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="backstoryInput_TextChanged"></TextBox>
+                                                <TextBox x:Name="backstoryInput" Margin="10" AcceptsReturn="True" TextWrapping="Wrap" Style="{DynamicResource charSheetTextBox}" BorderBrush="White" Background="Transparent" Foreground="White" SelectionBrush="IndianRed" TextAlignment="Center" FontSize="30" FontFamily="./fonts/#Ami R" Width="300" TextChanged="backstoryInput_TextChanged"></TextBox>
                                             </StackPanel>
                                         </StackPanel>
                                     </ScrollViewer>
@@ -1714,70 +1714,188 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
-                                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <StackPanel>
-                                        <RadioButton GroupName="species" Margin="5" x:Name="species1BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
-                                            <Grid Height="150">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition/>
-                                                    <ColumnDefinition/>
-                                                    <ColumnDefinition/>
-                                                </Grid.ColumnDefinitions>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition/>
-                                                    <RowDefinition/>
-                                                    <RowDefinition/>
-                                                </Grid.RowDefinitions>
-                                                <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Valumian</Label>
-                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Hardiness</Label>
-                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
-                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Nimbleness</Label>
-                                                <TextBlock Margin="10,-10,10,10" VerticalAlignment="Bottom" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Battle Cry</Bold> - Once per day you may inspire your allies with a speech or other gesture. While inspired, your allies may make any roll with advantage.</TextBlock>
-                                            </Grid>
-                                        </RadioButton>
-                                        <RadioButton GroupName="species" Margin="5" x:Name="species2BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
-                                            <Grid Height="150">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition/>
-                                                    <ColumnDefinition/>
-                                                    <ColumnDefinition/>
-                                                </Grid.ColumnDefinitions>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition/>
-                                                    <RowDefinition/>
-                                                    <RowDefinition/>
-                                                </Grid.RowDefinitions>
-                                                <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Tidal</Label>
-                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Hardiness</Label>
-                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
-                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+4 Nimbleness</Label>
-                                                <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Aquatic Ancestry</Bold> - You can breathe underwater, and your swim speed is equal to your movement.</TextBlock>
-                                            </Grid>
-                                        </RadioButton>
-                                    </StackPanel>
-                                    <StackPanel>
-
-                                        <RadioButton GroupName="species" Margin="5" x:Name="species6BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
-                                            <Grid Height="150">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition/>
-                                                    <ColumnDefinition/>
-                                                    <ColumnDefinition/>
-                                                </Grid.ColumnDefinitions>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition/>
-                                                    <RowDefinition/>
-                                                    <RowDefinition/>
-                                                </Grid.RowDefinitions>
-                                                <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Tidal</Label>
-                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Hardiness</Label>
-                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
-                                                <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+4 Nimbleness</Label>
-                                                <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Aquatic Ancestry</Bold> - You can breathe underwater, and your swim speed is equal to your movement.</TextBlock>
-                                            </Grid>
-                                        </RadioButton>
-                                    </StackPanel>
-                                </WrapPanel>
+                                <ScrollViewer Style="{DynamicResource modernscrollviewer}" Margin="3,10">
+                                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <StackPanel>
+                                            <RadioButton GroupName="species" Margin="5" x:Name="species1BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <Label Margin="0,-15,0,10"  VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Valumian</Label>
+                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                        <Label Margin="0,-25,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Hardiness</Label>
+                                                        <Label Margin="0,-25,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
+                                                        <Label Margin="0,-25,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Nimbleness</Label>
+                                                    </StackPanel>
+                                                    <TextBlock VerticalAlignment="Center" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Battle Cry</Bold> - Once per day you may inspire your allies with a speech or other gesture. While inspired, your allies may make any roll with advantage.</TextBlock>
+                                                </StackPanel>
+                                            </RadioButton>
+                                            <RadioButton GroupName="species" Margin="5" x:Name="species2BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                                <StackPanel>
+                                                    <Label Margin="0,-5,0,10" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Tidal</Label>
+                                                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                                        <Label Margin="0,-25,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Hardiness</Label>
+                                                        <Label Margin="0,-25,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
+                                                        <Label Margin="0,-25,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+4 Nimbleness</Label>
+                                                    </StackPanel>
+                                                    <TextBlock VerticalAlignment="Center" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Aquatic Ancestry</Bold> - You can breathe underwater, and your swim speed is equal to your movement.</TextBlock>
+                                                </StackPanel>
+                                            </RadioButton>
+                                            <RadioButton GroupName="species" Margin="5" x:Name="species3BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Flor'Un</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Hardiness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+4 Mindfulness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Nimbleness</Label>
+                                                    <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Commune with Nature</Bold> - Once per day, you may speak to one animal or one plant.</TextBlock>
+                                                </Grid>
+                                            </RadioButton>
+                                            <RadioButton GroupName="species" Margin="5" x:Name="species4BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Etherkin</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+* Hardiness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+* Mindfulness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+* Nimbleness</Label>
+                                                    <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Newfound Power</Bold> - On creation of your character, you have 8 attribute points to split amongst your attributes.</TextBlock>
+                                                </Grid>
+                                            </RadioButton>
+                                            <RadioButton GroupName="species" Margin="5" x:Name="species5BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Cursed</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Hardiness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Mindfulness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Nimbleness</Label>
+                                                    <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Relentlessness</Bold> - Once per day, if you would die, you don't.</TextBlock>
+                                                </Grid>
+                                            </RadioButton>
+                                        </StackPanel>
+                                        <StackPanel>
+                                            <RadioButton GroupName="species" Margin="5" x:Name="species6BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Drak</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Hardiness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Nimbleness</Label>
+                                                    <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Draconic Ancestry</Bold> - Choose between Breath, Wings, Tail, Claws, or Scales. Each choice provides a different benefit.</TextBlock>
+                                                </Grid>
+                                            </RadioButton>
+                                            <RadioButton GroupName="species" Margin="5" x:Name="species7BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Skala</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+4 Hardiness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Mindfulness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Nimbleness</Label>
+                                                    <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Resilience</Bold> - You can ignore minor wounds.</TextBlock>
+                                                </Grid>
+                                            </RadioButton>
+                                            <RadioButton GroupName="species" Margin="5" x:Name="species8BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Sluj</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+4 Hardiness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Mindfulness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Nimbleness</Label>
+                                                    <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Pride of the Clan</Bold> - When rolling to determine how much you wound your enemy, a 1-3 is a medium wound and a 4-6 is a major wound.</TextBlock>
+                                                </Grid>
+                                            </RadioButton>
+                                            <RadioButton GroupName="species" Margin="5" x:Name="species9BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Tvaru</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Hardiness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Mindfulness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+1 Nimbleness</Label>
+                                                    <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Special-Shift</Bold> - Once per day, choose another Species. You take on some of their most prominent features as a species and gain their trait.</TextBlock>
+                                                </Grid>
+                                            </RadioButton>
+                                            <RadioButton GroupName="species" Margin="5" x:Name="species10BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Margin="0,-10,0,0" VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Karkonos</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Hardiness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Mindfulness</Label>
+                                                    <Label Margin="0,-18,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" FontFamily="./fonts/#Ami R" FontSize="20" Foreground="White">+2 Nimbleness</Label>
+                                                    <TextBlock Margin="10,-5,10,10" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="./fonts/#Ami R" TextAlignment="Center" Grid.ColumnSpan="3" Grid.Row="2" TextWrapping="Wrap"><Bold>Aincent Evolution</Bold> - Gain 1 to all three of your attribute scores.</TextBlock>
+                                                </Grid>
+                                            </RadioButton>
+                                        </StackPanel>
+                                    </WrapPanel>
+                                </ScrollViewer>
                             </Grid>
                         </TabItem>
                         <TabItem x:Name="professionSelectionTab" Header="Profession">
