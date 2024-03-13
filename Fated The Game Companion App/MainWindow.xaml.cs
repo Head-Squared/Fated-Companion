@@ -6,6 +6,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Shapes;
 using System.Windows.Xps.Packaging;
 using SpeciesClass;
 
@@ -742,6 +743,25 @@ namespace Fated_The_Game_Companion_App
         private void species1BTN_Click(object sender, RoutedEventArgs e)
         {
             speciesInformationTabControl.SelectedIndex = 1;
+        }
+
+        private void drawingWindow_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+            {
+                double x = Mouse.GetPosition(drawingWindow).X;
+                double y = Mouse.GetPosition(drawingWindow).Y;
+
+                Ellipse ellipse = new Ellipse();
+                ellipse.Width = 2;
+                ellipse.Height = 2;
+                ellipse.Fill = Brushes.Black;
+
+                Canvas.SetLeft(ellipse, x);
+                Canvas.SetTop(ellipse, y);
+                
+                drawingWindow.Children.Add(ellipse);
+            }
         }
     }
 }
