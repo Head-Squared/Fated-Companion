@@ -36,24 +36,11 @@ namespace Fated_The_Game_Companion_App
         public string? Friends;
         public string? Enemies;
         public string? Backstory;
-        public string? SpeciesName;
-        public string? SpeciesShortDescription;
-        public string? SpeciesLongDescription;
-        public string? SpeciesLore;
-        public string? SpeciesPhysicalAppearance;
-        public int SpeciesHardinessBonus;
-        public int SpeciesMindfulnessBonus;
-        public int SpeciesNimblenessBonus;
-        public string? SpeciesSpecialAbilityName;
-        public string? SpeciesSpecialAbilityDescription;
-        public bool SpeciesSecondChoice;
-        public bool SpeciesThirdChoice;
-        public string? SpeciesSecondChoiceType;
-        public string? SpeciesThirdChoiceType;
-        public List<string>? SpeciesSecondList;
-        public List<string>? SpeciesThirdList;
 
         // Species
+        public string? SpeciesChoice;
+        public string? SpeciesSecondChoice;
+        public string? SpeciesThirdChoice;
     }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -752,5 +739,9 @@ namespace Fated_The_Game_Companion_App
             Serialize(curCharacterPath, curSelectedCharacter);
         }
 
+        private void species1BTN_Click(object sender, RoutedEventArgs e)
+        {
+            speciesInformationTabControl.SelectedIndex = 1;
+        }
     }
 }

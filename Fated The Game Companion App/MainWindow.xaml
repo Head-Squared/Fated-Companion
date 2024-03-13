@@ -1717,7 +1717,7 @@
                                 <ScrollViewer Grid.Column="0" Style="{DynamicResource modernscrollviewer}" PanningMode="VerticalOnly" Margin="3,10">
                                     <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                                         <StackPanel>
-                                            <RadioButton GroupName="species" Margin="5" x:Name="species1BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
+                                            <RadioButton Click="species1BTN_Click" GroupName="species" Margin="5" x:Name="species1BTN" Style="{DynamicResource speciesSelectionBTNs}" HorizontalAlignment="Center">
                                                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                                                     <Label Margin="0,-15,0,10"  VerticalAlignment="Center" Grid.ColumnSpan="3" Grid.Row="0" FontFamily="./fonts/#Ami R" FontSize="50" Foreground="White" HorizontalAlignment="Center">Valumian</Label>
                                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -1896,6 +1896,24 @@
                                         </StackPanel>
                                     </WrapPanel>
                                 </ScrollViewer>
+                                <TabControl x:Name="speciesInformationTabControl" SelectedIndex="0" Grid.Column="1" Margin="15" Style="{DynamicResource noTabPanel}" Background="#FF2E2E2E">
+                                    <TabItem TabIndex="0">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" FontSize="40" TextAlignment="Center" FontFamily="./fonts/#Ami R" Foreground="White" TextWrapping="Wrap">
+                                            Please select a species from the list on the left. Once you have, it's information will appear here!
+                                        </TextBlock>
+                                    </TabItem>
+                                    <TabItem TabIndex="1">
+                                        <ScrollViewer Style="{DynamicResource modernscrollviewer}">
+                                            <StackPanel>
+                                                <Label FontFamily="./fonts/#Ami R" Foreground="White" FontSize="24" HorizontalAlignment="Center">Description</Label>
+                                                <TextBlock></TextBlock>
+                                                <Label FontFamily="./fonts/#Ami R" Foreground="White" FontSize="24" HorizontalAlignment="Center">Lore</Label>
+                                                <TextBlock></TextBlock>
+                                                <Label FontFamily="./fonts/#Ami R" Foreground="White" FontSize="24" HorizontalAlignment="Center">Mechanics</Label>
+                                            </StackPanel>
+                                        </ScrollViewer>
+                                    </TabItem>
+                                </TabControl>
                             </Grid>
                         </TabItem>
                         <TabItem x:Name="professionSelectionTab" Header="Profession">
