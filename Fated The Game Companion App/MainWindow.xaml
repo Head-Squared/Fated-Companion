@@ -1594,7 +1594,7 @@
                 </Grid>
             </TabItem>
             <TabItem x:Name="toolsTab">
-                <Canvas x:Name="drawingWindow" Background="White" MouseMove="drawingWindow_MouseMove"/>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="./fonts/#Ami R" Foreground="White" FontSize="24">Functionality will be added to this tab at a later date!</Label>
             </TabItem>
             <TabItem x:Name="settingsTab">
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="./fonts/#Ami R" Foreground="White" FontSize="24">Functionality will be added to this tab at a later date!</Label>

@@ -8,7 +8,6 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Xps.Packaging;
-using SpeciesClass;
 
 namespace Fated_The_Game_Companion_App
 {
@@ -213,19 +212,19 @@ namespace Fated_The_Game_Companion_App
         {
             TreeViewItem? item = rulesetTree.SelectedItem as TreeViewItem;
             bool run = true;
-            #pragma warning disable CS8602 // Dereference of a possibly null reference.
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             string path = item.Header.ToString() + ".xps";
-            #pragma warning restore CS8602 // Dereference of a possibly null reference.
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             while (run)
             {
-                #pragma warning disable CS8602 // Dereference of a possibly null reference.
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 TreeViewItem? parent = item.Parent as TreeViewItem;
-                #pragma warning restore CS8602 // Dereference of a possibly null reference.
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
                 try
                 {
-                    #pragma warning disable CS8602 // Dereference of a possibly null reference.
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                     path = parent.Header.ToString() + "\\" + path;
-                    #pragma warning restore CS8602 // Dereference of a possibly null reference.
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
                 }
                 catch
                 {
@@ -252,27 +251,27 @@ namespace Fated_The_Game_Companion_App
             string[] files = Directory.GetFiles(DirPath); // Creates an array of all the files in parent folder
 
             foreach (string file in files) // Iterates over files in subfolder
-                {
-                    string fileName = System.IO.Path.GetFileName(file).Replace(".xps", ""); // Changes partial path into useable full path
+            {
+                string fileName = System.IO.Path.GetFileName(file).Replace(".xps", ""); // Changes partial path into useable full path
 
-                    TreeViewItem childItem = new TreeViewItem(); // Creates new treeview item
-                    childItem.Header = fileName; // Sets the new treeview item's header to the name of the file
-                    childItem.Foreground = Brushes.LightGray;
-                    childItem.Style = (Style)Resources["mechtreeitem"];
+                TreeViewItem childItem = new TreeViewItem(); // Creates new treeview item
+                childItem.Header = fileName; // Sets the new treeview item's header to the name of the file
+                childItem.Foreground = Brushes.LightGray;
+                childItem.Style = (Style)Resources["mechtreeitem"];
 
                 if (parent.GetType() == typeof(TreeView))
                 {
                     TreeView parentItem = (TreeView)parent;
                     parentItem.Items.Add(childItem); // Adds treeview items as a child of folder treeview item
                     parentItem.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending)); // Sorts items alphabetically
-                } 
+                }
                 else if (parent.GetType() == typeof(TreeViewItem))
                 {
                     TreeViewItem parentItem = (TreeViewItem)parent;
                     parentItem.Items.Add(childItem); // Adds treeview items as a child of folder treeview item
                     parentItem.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending)); // Sorts items alphabetically
                 }
-                }
+            }
             foreach (string folder in folders) // Iterates over array of folders
             {
                 string folderName = System.IO.Path.GetFileName(folder); // Variable that stores the name of the file, excluding path
@@ -489,7 +488,7 @@ namespace Fated_The_Game_Companion_App
             identifyingMarksInput.Text = curSelectedCharacter.IdentifyingMarks;
             alignmentInput.Text = curSelectedCharacter.Alignment;
             beliefsInput.Text = curSelectedCharacter.Beliefs;
-            idealsInput.Text = curSelectedCharacter.Ideals; 
+            idealsInput.Text = curSelectedCharacter.Ideals;
             flawsInput.Text = curSelectedCharacter.Flaws;
             groupsInput.Text = curSelectedCharacter.Groups;
             friendsInput.Text = curSelectedCharacter.Friends;
@@ -566,7 +565,7 @@ namespace Fated_The_Game_Companion_App
             charCreatorTabs.SelectedIndex = 0;
             charGenInfoBTN.IsChecked = true;
 
-            
+
         }
 
         private void Serialize(string path, CharacterSheet characterSheet)
@@ -592,9 +591,9 @@ namespace Fated_The_Game_Companion_App
                 curCharacterPath = path;
             }
 
-            #pragma warning disable CS8603 // Possible null reference return.
+#pragma warning disable CS8603 // Possible null reference return.
             return cs;
-            #pragma warning restore CS8603 // Possible null reference return.
+#pragma warning restore CS8603 // Possible null reference return.
 
         }
 
@@ -745,23 +744,5 @@ namespace Fated_The_Game_Companion_App
             speciesInformationTabControl.SelectedIndex = 1;
         }
 
-        private void drawingWindow_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (Mouse.LeftButton == MouseButtonState.Pressed)
-            {
-                double x = Mouse.GetPosition(drawingWindow).X;
-                double y = Mouse.GetPosition(drawingWindow).Y;
-
-                Ellipse ellipse = new Ellipse();
-                ellipse.Width = 2;
-                ellipse.Height = 2;
-                ellipse.Fill = Brushes.Black;
-
-                Canvas.SetLeft(ellipse, x);
-                Canvas.SetTop(ellipse, y);
-                
-                drawingWindow.Children.Add(ellipse);
-            }
-        }
     }
 }
